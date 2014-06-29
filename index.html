@@ -1,0 +1,297 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="msapplication-tap-highlight" content="no" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+        <title>FFF</title>
+
+        <link rel="stylesheet" type="text/css" href="fff.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.1.1.min.css" />
+		<!--
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+
+		<script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		-->
+		<script type="text/javascript" charset="utf-8" src="jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
+    </head>
+    <body>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><input id="alarmar" name="alarmar" type="checkbox" value="alarmar" /></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right hidden-xs">
+				<li><a href="#" style="color:#111">Atualização em <span class="tempo" style="font-size: 45px;vertical-align: bottom;"></span></a></li>
+			</ul>
+		</div>
+     	
+		<audio id="alert-sound">
+			<source src="fff.mp3" type="audio/mp3">
+			<source src="fff.ogg" type="audio/ogg">
+		</audio>
+		<div style="border:1px solid black; width:632px">
+			<img src="firstComeFirstServed_april_pt.jpg" alt="FFF" height="158" width="632">
+			
+			<table class="table table-striped table-bordered" id="disponiveis">
+				<thead>
+					<tr style="background-color:#333; color:#ddd">
+						<th class="text-center">Jogo</th>
+						<th class="text-center">Seleções</th>
+						<th class="text-center">Local</th>
+						<th class="hidden-xs">Data</th>
+						<th class="text-center"><span class="hidden-xs">Cat</span> 1</th>
+						<th class="text-center"><span class="hidden-xs">Cat</span> 2</th>
+						<th class="text-center"><span class="hidden-xs">Cat</span> 3</th>
+						<th class="text-center"><span class="hidden-xs">Cat</span> 4</th>
+						<!--<th class="text-center hidden-xs"></th>-->
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+        
+
+        <script type="text/javascript" src="fff.js"></script>
+        
+        <script type="text/javascript">
+//json = $.getJSON('https://fwctickets.fifa.com/TopsAkaCalls/Calls.aspx/getBasicData?l=en&c=BRA');
+//json = {"d":{"__type":"TOPS.ajaxResponse","success":true,"data":"{\"BasicCodes\":{\"PRODUCTPRICES\":[{\"PRPProductId\":\"IMT01\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT01\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT01\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT01\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT01\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT01\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT01\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT02\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT02\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT02\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT02\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT02\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT02\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT02\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT03\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT03\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT03\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT03\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT03\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT03\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT03\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT04\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT04\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT04\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT04\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT04\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT04\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT04\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT05\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT05\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT05\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT05\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT05\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT05\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT05\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT06\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT06\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT06\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT06\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT06\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT06\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT06\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT07\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT07\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT07\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT07\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT07\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT07\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT07\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT08\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT08\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT08\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT08\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT08\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT08\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT08\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT09\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT09\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT09\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT09\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT09\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT09\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT09\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT10\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT10\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT10\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT10\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT10\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT10\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT10\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT11\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT11\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT11\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT11\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT11\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT11\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT11\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT12\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT12\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT12\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT12\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT12\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT12\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT12\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT13\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT13\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT13\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT13\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT13\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT13\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT13\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT14\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT14\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT14\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT14\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT14\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT14\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT14\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT15\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT15\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT15\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT15\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT15\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT15\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT15\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT16\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT16\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT16\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT16\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT16\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT16\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT16\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT17\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT17\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT17\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT17\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT17\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT17\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT17\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT18\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT18\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT18\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT18\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT18\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT18\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT18\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT19\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT19\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT19\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT19\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT19\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT19\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT19\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT20\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT20\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT20\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT20\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT20\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT20\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT20\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT21\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT21\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT21\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT21\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT21\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT21\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT21\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT22\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT22\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT22\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT22\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT22\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT22\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT22\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT23\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT23\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT23\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT23\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT23\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT23\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT23\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT24\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT24\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT24\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT24\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT24\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT24\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT24\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT25\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT25\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT25\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT25\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT25\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT25\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT25\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT26\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT26\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT26\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT26\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT26\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT26\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT26\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT27\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT27\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT27\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT27\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT27\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT27\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT27\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT28\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT28\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT28\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT28\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT28\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT28\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT28\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT29\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT29\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT29\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT29\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT29\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT29\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT29\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT30\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT30\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT30\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT30\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT30\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT30\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT30\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT31\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT31\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT31\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT31\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT31\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT31\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT31\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT32\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT32\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT32\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT32\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT32\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT32\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT32\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT33\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT33\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT33\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT33\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT33\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT33\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT33\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT34\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT34\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT34\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT34\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT34\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT34\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT34\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT35\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT35\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT35\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT35\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT35\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT35\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT35\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT36\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT36\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT36\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT36\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT36\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT36\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT36\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT37\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT37\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT37\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT37\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT37\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT37\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT37\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT38\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT38\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT38\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT38\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT38\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT38\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT38\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT39\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT39\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT39\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT39\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT39\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT39\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT39\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT40\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT40\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT40\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT40\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT40\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT40\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT40\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT41\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT41\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT41\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT41\",\"PRPCategoryId\":\"4\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT41\",\"PRPCategoryId\":\"5\",\"Quantity\":\"110\"},{\"PRPProductId\":\"IMT41\",\"PRPCategoryId\":\"13\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT41\",\"PRPCategoryId\":\"14\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT42\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT42\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT42\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT42\",\"PRPCategoryId\":\"4\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT42\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT42\",\"PRPCategoryId\":\"13\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT42\",\"PRPCategoryId\":\"14\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT43\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT43\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT43\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT43\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT43\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT43\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT43\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT44\",\"PRPCategoryId\":\"1\",\"Quantity\":\"377\"},{\"PRPProductId\":\"IMT44\",\"PRPCategoryId\":\"2\",\"Quantity\":\"226\"},{\"PRPProductId\":\"IMT44\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT44\",\"PRPCategoryId\":\"4\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT44\",\"PRPCategoryId\":\"5\",\"Quantity\":\"42\"},{\"PRPProductId\":\"IMT44\",\"PRPCategoryId\":\"13\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT44\",\"PRPCategoryId\":\"14\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT45\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT45\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT45\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT45\",\"PRPCategoryId\":\"4\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT45\",\"PRPCategoryId\":\"5\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT45\",\"PRPCategoryId\":\"13\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT45\",\"PRPCategoryId\":\"14\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT46\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT46\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT46\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT46\",\"PRPCategoryId\":\"4\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT46\",\"PRPCategoryId\":\"5\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT46\",\"PRPCategoryId\":\"13\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT46\",\"PRPCategoryId\":\"14\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT47\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT47\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT47\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT47\",\"PRPCategoryId\":\"4\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT47\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT47\",\"PRPCategoryId\":\"13\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT47\",\"PRPCategoryId\":\"14\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT48\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT48\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT48\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT48\",\"PRPCategoryId\":\"4\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT48\",\"PRPCategoryId\":\"5\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT48\",\"PRPCategoryId\":\"13\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT48\",\"PRPCategoryId\":\"14\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT49\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT49\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT49\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT49\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT49\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT49\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT49\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT50\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT50\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT50\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT50\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT50\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT50\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT50\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT51\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT51\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT51\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT51\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT51\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT51\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT51\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT52\",\"PRPCategoryId\":\"1\",\"Quantity\":\"43\"},{\"PRPProductId\":\"IMT52\",\"PRPCategoryId\":\"2\",\"Quantity\":\"133\"},{\"PRPProductId\":\"IMT52\",\"PRPCategoryId\":\"3\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT52\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT52\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT52\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT52\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT53\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT53\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT53\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT53\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT53\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT53\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT53\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT54\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT54\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT54\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT54\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT54\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT54\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT54\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT55\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT55\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT55\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT55\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT55\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT55\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT55\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT56\",\"PRPCategoryId\":\"1\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT56\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT56\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT56\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT56\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT56\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT56\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT57\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT57\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT57\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT57\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT57\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT57\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT57\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT58\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT58\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT58\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT58\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT58\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT58\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT58\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT59\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT59\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT59\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT59\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT59\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT59\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT59\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT60\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT60\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT60\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT60\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT60\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT60\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT60\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT61\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT61\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT61\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT61\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT61\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT61\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT61\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT62\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT62\",\"PRPCategoryId\":\"2\",\"Quantity\":\"0\"},{\"PRPProductId\":\"IMT62\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT62\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT62\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT62\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT62\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT63\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT63\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT63\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT63\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT63\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT63\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT63\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT64\",\"PRPCategoryId\":\"1\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT64\",\"PRPCategoryId\":\"2\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT64\",\"PRPCategoryId\":\"3\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT64\",\"PRPCategoryId\":\"4\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT64\",\"PRPCategoryId\":\"5\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT64\",\"PRPCategoryId\":\"13\",\"Quantity\":\"-1\"},{\"PRPProductId\":\"IMT64\",\"PRPCategoryId\":\"14\",\"Quantity\":\"-1\"}]}}","data2":null,"dataExtra":null,"Type":null,"general_message":null,"errors":[],"actionOnSuccess":null}}
+
+//alert($.parseJSON(json.d.data).BasicCodes.PRODUCTPRICES[333].PRPProductId);
+
+var json = {"IMT53":{"c1":"2","c2":"3","c3":"1","c4":""}};
+//var json = $.getJSON('furafiladacopa.json?callback=?');
+//var json = $.getJSON("http://www.furafiladacopa.com/atualizar.json?callback=?");
+
+//alert(json.IMT53.c2);
+
+
+
+
+			games 			= $.parseJSON('{"IMT01":{"nome":"Jogo 01 - Brasil x Croácia - São Paulo","data":"12 Jun 17:00"},"IMT02":{"nome":"Jogo 02 - México x Camarões - Natal","data":"13 Jun 13:00"},"IMT03":{"nome":"Jogo 03 - Espanha x Holanda - Salvador","data":"13 Jun 16:00"},"IMT04":{"nome":"Jogo 04 - Chile x Austrália - Cuiabá","data":"13 Jun 18:00"},"IMT05":{"nome":"Jogo 05 - Colômbia x Grécia - Belo Horizonte","data":"14 Jun 13:00"},"IMT06":{"nome":"Jogo 06 - Costa do Marfim x Japão - Recife","data":"14 Jun 22:00"},"IMT07":{"nome":"Jogo 07 - Uruguai x Costa Rica - Fortaleza","data":"14 Jun 16:00"},"IMT08":{"nome":"Jogo 08 - Inglaterra x Itália - Manaus","data":"14 Jun 18:00"},"IMT09":{"nome":"Jogo 09 - Suíça x Equador - Brasília","data":"15 Jun 13:00"},"IMT10":{"nome":"Jogo 10 - França x Honduras - Porto Alegre","data":"15 Jun 16:00"},"IMT11":{"nome":"Jogo 11 - Argentina x Bósnia e Herzegovina - Rio de Janeiro","data":"15 Jun 19:00"},"IMT12":{"nome":"Jogo 12 - Irã x Nigéria - Curitiba","data":"16 Jun 16:00"},"IMT13":{"nome":"Jogo 13 - Alemanha x Portugal - Salvador","data":"16 Jun 13:00"},"IMT14":{"nome":"Jogo 14 - Gana x EUA - Natal","data":"16 Jun 19:00"},"IMT15":{"nome":"Jogo 15 - Bélgica x Argélia - Belo Horizonte","data":"17 Jun 13:00"},"IMT16":{"nome":"Jogo 16 - Rússia x Coreia do Sul - Cuiabá","data":"17 Jun 18:00"},"IMT17":{"nome":"Jogo 17 - Brasil x México - Fortaleza","data":"17 Jun 16:00"},"IMT18":{"nome":"Jogo 18 - Camarões x Croácia - Manaus","data":"18 Jun 18:00"},"IMT19":{"nome":"Jogo 19 - Espanha x Chile - Rio de Janeiro","data":"18 Jun 16:00"},"IMT20":{"nome":"Jogo 20 - Austrália x Holanda - Porto Alegre","data":"18 Jun 13:00"},"IMT21":{"nome":"Jogo 21 - Colômbia x Costa do Marfim - Brasília","data":"19 Jun 13:00"},"IMT22":{"nome":"Jogo 22 - Japão x Grécia - Natal","data":"19 Jun 19:00"},"IMT23":{"nome":"Jogo 23 - Uruguai x Inglaterra - São Paulo","data":"19 Jun 16:00"},"IMT24":{"nome":"Jogo 24 - Itália x Costa Rica - Recife","data":"20 Jun 13:00"},"IMT25":{"nome":"Jogo 25 - Suíça x França - Salvador","data":"20 Jun 16:00"},"IMT26":{"nome":"Jogo 26 - Honduras x Equador - Curitiba","data":"20 Jun 19:00"},"IMT27":{"nome":"Jogo 27 - Argentina x Irã - Belo Horizonte","data":"21 Jun 13:00"},"IMT28":{"nome":"Jogo 28 - Nigéria x Bósnia e Herzegovina - Cuiabá","data":"21 Jun 18:00"},"IMT29":{"nome":"Jogo 29 - Alemanha x Gana - Fortaleza","data":"21 Jun 16:00"},"IMT30":{"nome":"Jogo 30 - EUA x Portugal - Manaus","data":"22 Jun 18:00"},"IMT31":{"nome":"Jogo 31 - Bélgica x Rússia - Rio de Janeiro","data":"22 Jun 13:00"},"IMT32":{"nome":"Jogo 32 - Coreia do Sul x Argélia - Porto Alegre","data":"22 Jun 16:00"},"IMT33":{"nome":"Jogo 33 - Camarões x Brasil - Brasília","data":"23 Jun 17:00"},"IMT34":{"nome":"Jogo 34 - Croácia x México - Recife","data":"23 Jun 17:00"},"IMT35":{"nome":"Jogo 35 - Austrália x Espanha - Curitiba","data":"23 Jun 13:00"},"IMT36":{"nome":"Jogo 36 - Holanda x Chile - São Paulo","data":"23 Jun 13:00"},"IMT37":{"nome":"Jogo 37 - Japão x Colômbia - Cuiabá","data":"24 Jun 16:00"},"IMT38":{"nome":"Jogo 38 - Grécia x Costa do Marfim - Fortaleza","data":"24 Jun 17:00"},"IMT39":{"nome":"Jogo 39 - Itália x Uruguai - Natal","data":"24 Jun 13:00"},"IMT40":{"nome":"Jogo 40 - Costa Rica x Inglaterra - Belo Horizonte","data":"24 Jun 13:00"},"IMT41":{"nome":"Jogo 41 - Honduras x Suíça - Manaus","data":"25 Jun 16:00"},"IMT42":{"nome":"Jogo 42 - Equador x França - Rio de Janeiro","data":"25 Jun 17:00"},"IMT43":{"nome":"Jogo 43 - Nigéria x Argentina - Porto Alegre","data":"25 Jun 13:00"},"IMT44":{"nome":"Jogo 44 - Bósnia e Herzegovina x Irã - Salvador","data":"25 Jun 13:00"},"IMT45":{"nome":"Jogo 45 - EUA x Alemanha - Recife","data":"26 Jun 13:00"},"IMT46":{"nome":"Jogo 46 - Portugal x Gana - Brasília","data":"26 Jun 13:00"},"IMT47":{"nome":"Jogo 47 - Coreia do Sul x Bélgica - São Paulo","data":"26 Jun 17:00"},"IMT48":{"nome":"Jogo 48 - Argélia x Rússia - Curitiba","data":"26 Jun 17:00"},"IMT49":{"nome":"Jogo 49 - Brasil x Chile - Belo Horizonte","data":"28 Jun 13:00"},"IMT50":{"nome":"Jogo 50 - Colômbia x Uruguai - Rio de Janeiro","data":"28 Jun 17:00"},"IMT51":{"nome":"Jogo 51 - Holanda x México - Fortaleza","data":"29 Jun 13:00"},"IMT52":{"nome":"Jogo 52 - Costa Rica x Grécia - Recife","data":"29 Jun 17:00"},"IMT53":{"nome":"Jogo 53 - 1E x 2F - Brasília","data":"30 Jun 13:00"},"IMT54":{"nome":"Jogo 54 - 1G x 2H - Porto Alegre","data":"30 Jun 17:00"},"IMT55":{"nome":"Jogo 55 - 1F x 2E - São Paulo","data":"01 Jul 13:00"},"IMT56":{"nome":"Jogo 56 - 1H x 2G - Salvador","data":"01 Jul 17:00"},"IMT57":{"nome":"Jogo 57 - V49 x V50 - Fortaleza","data":"04 Jul 17:00"},"IMT58":{"nome":"Jogo 58 - V53 x V54 - Rio de Janeiro","data":"04 Jul 13:00"},"IMT59":{"nome":"Jogo 59 - V51 x V52 - Salvador","data":"05 Jul 17:00"},"IMT60":{"nome":"Jogo 60 - V55 x V56 - Brasília","data":"05 Jul 13:00"},"IMT61":{"nome":"Jogo 61 - V57 x V58 - Belo Horizonte","data":"08 Jul 17:00"},"IMT62":{"nome":"Jogo 62 - V59 x V60 - São Paulo","data":"09 Jul 17:00"},"IMT63":{"nome":"Jogo 63 - P61 x P62 - Brasília","data":"12 Jul 17:00"},"IMT64":{"nome":"Jogo 64 - V61 x V62 - Rio de Janeiro","data":"13 Jul 16:00"},"BHZ VST":{"nome":"Belo Horizonte Sede Específica (não inclui Jogo 61)","data":"28 Jun 13:00"},"BRS VST":{"nome":"Brasília Sede Específica (não inclui Jogo 60)","data":"12 Jul 17:00"},"CBA VST":{"nome":"Cuiabá Sede Específica","data":"24 Jun 16:00"},"CUR VST":{"nome":"Curitiba Sede Específica","data":"26 Jun 17:00"},"FTL VST":{"nome":"Fortaleza Sede Específica (não inclui Jogo 57)","data":"29 Jun 13:00"},"MAN VST":{"nome":"Manaus Sede Específica","data":"25 Jun 16:00"},"NTL VST":{"nome":"Natal Sede Específica","data":"24 Jun 13:00"},"PTA VST":{"nome":"Porto Alegre Sede Específica","data":"30 Jun 17:00"},"RCF VST":{"nome":"Recife Sede Específica","data":"29 Jun 17:00"},"RIO VST":{"nome":"Rio de Janeiro Sede Específica (não inclui Jogo 58 e Jogo 64)","data":"28 Jun 17:00"},"SAL VST":{"nome":"Salvador Sede Específica (não inclui Jogo 59)","data":"01 Jul 17:00"},"SAO VST":{"nome":"São Paulo Sede Específica (não inclui Jogo 01 e Jogo 62)","data":"01 Jul 13:00"}}');
+			alerts 			= $.parseJSON('["IMT51","IMT60","IMT63","IMT64"]');
+			availability 	= $.parseJSON('{"IMT52":{"c1":"","c2":"","c3":"2","c4":""},"IMT53":{"c1":"1","c2":"","c3":"51","c4":""},"IMT55":{"c1":"","c2":"1","c3":"","c4":""}}');
+
+
+
+			$(function() {
+//alert(games.IMT53.nome);
+//alert(alerts[2]);
+//alert(availability.IMT52.c3);
+
+				var c = new Number;
+				c = 10 * 1;
+	
+				$tempo = $(".tempo");
+				$disponiveis = $("#disponiveis tbody");
+				$tabela = $("#disponiveis");
+				
+				$alarmar = $("#alarmar");
+
+				sound = document.getElementById('alert-sound');
+	
+				function checkAlerts(data) {
+					if($.map(Object.keys(data), function(a) {return $.inArray(a, alerts) < 0 ? null : a}).length > 0) {
+						if($alarmar.prop('checked')) {
+							sound.play()
+						}
+					}
+				}
+	
+				function atualizarTabela(data) {
+					$disponiveis.html("");
+		
+					if(!$.isEmptyObject(data)) {
+						$.each(data, function(i, value) {
+										html = 	'<tr>' + 
+												'<td class="text-center">'	+ games[i].nome.substring(5,7) + '</td>' + 
+												'<td class="text-center">'	+ games[i].nome.substring(10,games[i].nome.lastIndexOf(" - ")) + '</td>' + 
+												'<td class="text-center">'	+ games[i].nome.substr(games[i].nome.lastIndexOf(" - ")+3) + '</td>' + 
+												'<td class="hidden-xs">' 	+ games[i].data + '</td>' + 
+												'<td class="text-center">' + value.c1 + '</td>' + 
+												'<td class="text-center">'	+ value.c2 + '</td>' + 
+												'<td class="text-center">'	+ value.c3 + '</td>' + 
+												'<td class="text-center">'	+value.c4 + '</td>' + 
+												// '<td class="hidden-xs">	<a class="btn btn-success" href="https://fwctickets.fifa.com/ticketingsystem.aspx?l=pt#Tck2">Comprar</a></td>'+
+												'</tr>';
+			
+										$disponiveis.append(html)
+									}
+						);
+		
+						checkAlerts(data)}else{$disponiveis.append('<tr><td colspan="9">Nenhum ingresso disponível neste momento, aguarde por favor.</td></tr>')}setTimeout(function(){$tabela.css("background-color","#FFF")},500);
+			
+						c = 10 * 1;
+			
+						startCount();
+				}
+		
+				function atualizarDados() {
+					$tempo.html("AGORA");
+					
+					$tabela.css("background-color", "#EEE");
+/*
+					$.get("/atualizar.json", function(data) {
+												atualizarTabela(data)
+											 }
+					)
+*/
+					atualizarTabela({"IMT51":{"c1":"100","c2":"100","c3":"100","c4":"100"},"IMT53":{"c1":"1","c2":"","c3":"51","c4":""},"IMT55":{"c1":"","c2":"1","c3":"","c4":""}})
+				}
+				
+				startCount = function() {
+					if(c - 1 >= 0) {
+						var t = parseInt(c / 60);
+				
+						var n = c % 60;
+				
+						if(t < 10) {
+							t = "0" + t;
+							t = t.substr(0, 2)
+						}
+						
+						if(n <= 9) {
+							n = "0" + n
+						}
+						
+						tempo = t + ":" + n;
+						
+						$tempo.html(tempo);
+						
+						setTimeout("startCount()", 1e3);
+						
+						c--
+					} else {
+						atualizarDados()
+					}
+				};
+/*			
+*/
+				
+				atualizarTabela(availability)
+			});
+        </script>
+    </body>
+</html>
+
+<!--
+<div id="container">
+
+<form class="form">
+
+<h1>Calculadora Flex:</h1>
+
+<table>
+
+<tr>
+	<td>
+	<label for="Gas_Cons">Consumo com Gasolina:</label>
+	</td>
+
+	<td>
+	<span class="kml">KM/L
+	<input type="number" name="Gas_Cons" id="Gas_Cons">
+	</span>
+	</td>
+</tr>
+
+<tr>
+	<td>
+	<label for="Eta_Cons">Consumo com Etanol:</label>
+	</td>
+
+	<td>
+	<span class="kml">KM/L
+	<input type="number" name="Eta_Cons" id="Eta_Cons">
+	</span>
+	</td>
+</tr>
+
+<tr>
+	<td>
+	<label for="Gas_Price">Preço de Gasolina:</label>
+	</td>
+
+	<td>
+	<span class="kml">R$
+	<input type="number" name="Gas_Price" id="Gas_Price">
+	</span>
+	</td>
+</tr>
+
+<tr>
+	<td>
+	<label for="Eta_Price">Preço do Etanol:</label>
+	</td>
+
+	<td>
+	<span class="kml">R$
+	<input type="number" name="Eta_Price" id="Eta_Price">
+	</span>
+	</td>
+</tr>
+
+</table>
+
+<p>
+<button  onclick="CalcFlex()" type="button">Gasolina ou Etanol?</button>
+</p>
+</div>
+
+<script type="text/javascript">
+window.onload = LoadLocalData();
+
+function LoadLocalData(){
+	var gas_con = localStorage.getItem('CalcFlex_Gas_Con');
+	var eta_con = localStorage.getItem('CalcFlex_Eta_Con');
+
+	if (gas_con == null) {
+		localStorage.setItem('CalcFlex_Gas_Con', '1.3');
+		document.getElementById("Gas_Cons").value="1.3";
+	}
+	else {
+		document.getElementById("Gas_Cons").value = localStorage.getItem('CalcFlex_Gas_Con');
+	}
+
+	if (eta_con == null) {
+		localStorage.setItem('CalcFlex_Eta_Con', '1');
+		document.getElementById("Eta_Cons").value="1";
+	}
+	else {
+		document.getElementById("Eta_Cons").value = localStorage.getItem('CalcFlex_Eta_Con');
+	}
+
+}
+
+function CalcFlex(){
+	var gas_con = localStorage.getItem('CalcFlex_Gas_Con');
+	var eta_con = localStorage.getItem('CalcFlex_Eta_Con');
+	var gas_price = document.getElementById("Gas_Price").value;
+	var eta_price = document.getElementById("Eta_Price").value;
+
+	effic_dif = gas_con / eta_con;
+	price_dif = gas_price / eta_price;
+
+	if (effic_dif > price_dif){
+		alert('Abasteça com Gasolina');
+	}
+	else {
+		alert('Abasteça com Etanol');
+	}
+}
+
+document.querySelector('#Gas_Cons').addEventListener('keyup',function(){
+		localStorage.setItem('CalcFlex_Gas_Con', this.value);}, false);
+
+document.querySelector('#Eta_Cons').addEventListener('keyup',function(){
+		localStorage.setItem('CalcFlex_Eta_Con', this.value);}, false);
+</script>
+
+</form>
+-->
