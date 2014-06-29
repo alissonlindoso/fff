@@ -22,7 +22,7 @@
     <body>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><input id="alarmar" name="alarmar" type="checkbox" value="alarmar" style="font-size:1000px;"/></li>
+				<li><input id="alarmar" name="alarmar" type="checkbox" value="alarmar" style="width:50px; height:50px;"/></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right hidden-xs">
 				<li><a href="#" style="color:#111">Atualização em <span class="tempo" style="font-size:45px; vertical-align:bottom;"></span></a></li>
@@ -33,7 +33,7 @@
 			<source src="http://www.furafiladacopa.com/alert.mp3" type="audio/mp3">
 			<source src="http://www.furafiladacopa.com/alert.ogg" type="audio/ogg">
 		</audio>
-		<div style="border:1px solid black; width:632px">
+		<div style="border:1px solid black; width:100%">
 			<img src="https://fwctickets.fifa.com/img/Promos/firstComeFirstServed_april_pt.jpg" alt="FFF" height="158" width="632">
 			
 			<table class="table table-striped table-bordered" id="disponiveis">
@@ -99,6 +99,7 @@ var json = {"IMT53":{"c1":"2","c2":"3","c3":"1","c4":""}};
 				function checkAlerts(data) {
 					if($.map(Object.keys(data), function(a) {return $.inArray(a, alerts) < 0 ? null : a}).length > 0) {
 						if($alarmar.prop('checked')) {
+							alert("XXX");
 							sound.play()
 						}
 					}
