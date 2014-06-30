@@ -10,13 +10,12 @@
         <title>FFF</title>
 
         <link rel="stylesheet" type="text/css" href="fff.css" />
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.1.1.min.css" />
-		<!--
         <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-
-		<script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-		-->
+		<!--
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.1.1.min.css" />
 		<script type="text/javascript" charset="utf-8" src="jquery-2.1.1.min.js"></script>
+		-->
+		<script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
     </head>
     <body>
@@ -32,6 +31,10 @@
 		<audio id="alert-sound">
 			<source src="http://www.furafiladacopa.com/alert.mp3" type="audio/mp3">
 			<source src="http://www.furafiladacopa.com/alert.ogg" type="audio/ogg">
+<!--
+			<source src="fff.mp3" type="audio/mp3">
+			<source src="fff.ogg" type="audio/ogg">
+-->
 		</audio>
 		<div style="border:1px solid black; width:100%">
 			<img src="https://fwctickets.fifa.com/img/Promos/firstComeFirstServed_april_pt.jpg" alt="FFF" height="158" width="632">
@@ -65,12 +68,13 @@
 
 //alert($.parseJSON(json.d.data).BasicCodes.PRODUCTPRICES[333].PRPProductId);
 
-var json = {"IMT53":{"c1":"2","c2":"3","c3":"1","c4":""}};
-//var json = $.getJSON('furafiladacopa.json?callback=?');
+//var json = {"IMT53":{"c1":"2","c2":"3","c3":"1","c4":""}};
+//var json = $.getJSON('furafiladacopa.json');
 //var json = $.getJSON("http://www.furafiladacopa.com/atualizar.json?callback=?");
+//var json = $.ajax({type: "GET", url: "https://fwctickets.fifa.com/TopsAkaCalls/Calls.aspx/getRefreshChartAvaDem?l=en&c=BRA", dataType: "jsonp"});
 
+//alert(json);
 //alert(json.IMT53.c2);
-
 
 
 
@@ -86,7 +90,7 @@ var json = {"IMT53":{"c1":"2","c2":"3","c3":"1","c4":""}};
 //alert(availability.IMT52.c3);
 
 				var c = new Number;
-				c = 10 * 1;
+				c = 15 * 1;
 	
 				$tempo = $(".tempo");
 				$disponiveis = $("#disponiveis tbody");
@@ -128,7 +132,7 @@ var json = {"IMT53":{"c1":"2","c2":"3","c3":"1","c4":""}};
 		
 						checkAlerts(data)}else{$disponiveis.append('<tr><td colspan="9">Nenhum ingresso disponível neste momento, aguarde por favor.</td></tr>')}setTimeout(function(){$tabela.css("background-color","#FFF")},500);
 			
-						c = 10 * 1;
+						c = 15 * 1;
 			
 						startCount();
 				}
@@ -137,12 +141,12 @@ var json = {"IMT53":{"c1":"2","c2":"3","c3":"1","c4":""}};
 					$tempo.html("AGORA");
 					
 					$tabela.css("background-color", "#EEE");
-/*
-					$.get("/atualizar.json", function(data) {
-												atualizarTabela(data)
-											 }
-					)
-*/
+
+//					$.get("http://www.furafiladacopa.com/atualizar.json?callback=?", function(data) {
+//												atualizarTabela(data)
+//											 }
+//					)
+
 					atualizarTabela({"IMT51":{"c1":"100","c2":"100","c3":"100","c4":"100"},"IMT53":{"c1":"1","c2":"","c3":"51","c4":""},"IMT55":{"c1":"","c2":"1","c3":"","c4":""}})
 				}
 				
@@ -172,11 +176,10 @@ var json = {"IMT53":{"c1":"2","c2":"3","c3":"1","c4":""}};
 						atualizarDados()
 					}
 				};
-/*			
-*/
-				
+
 				atualizarTabela(availability)
 			});
+/**/
         </script>
     </body>
 </html>
